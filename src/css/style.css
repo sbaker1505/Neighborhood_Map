@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  background-color: grey;
+}
+
+.body-container {
+  display: flex;
+}
+
+.header-container {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  height: 60px;
+}
+
+.map {
+  width: calc(100% - 300px);
+  height: calc(100vh - 80px);
+}
+
+.sidebar {
+  width: 300px;
+  height: calc(100vh - 80px);
+  order: -1;
+}
+
+.search {
+  width: 100%;
+  height: 30px;
+}
+
+.search input {
+  width: 100%;
+  height: 20px;
+}
+
+.places {
+  height: calc(100% - 30px);
+  width: 100%;
+  overflow: scroll;
+}
+
+.places li {
+  padding: 5px;
+}
+
+.places li:hover {
+  cursor: pointer;
+}
+
+.selected {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+.location-info {
+  padding: 10px;
+  background-color: white;
+  color: #000;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  .body-container {
+    display: block;
+  }
+  .header-container {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+  .sidebar {
+    order: 0;
+    width: 100%;
+    padding-top: calc(30vh + 60px);
+    overflow: hidden;
+  }
+  .search {
+    position: fixed;
+  }
+  .places {
+    padding-top: 30px;
+  }
+  .map {
+    width: 100%;
+    height: 30vh;
+    position: fixed;
+    top: 60px;
+  }
+}
