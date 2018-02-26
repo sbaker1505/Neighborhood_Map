@@ -99,3 +99,9 @@
     top: 60px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .header-container h1, .header-container h2 {
+    font-size: 25px;
+  }
+}
