@@ -10,6 +10,7 @@ export default class Places extends Component {
               <li
                 key={place.venue.id}
                 alt={place.venue.name}
+                tabIndex={0}
                 className={this.props.selectedMarker === place.venue.id ? 'selected' : null}
                 onClick={() => this.props.onSelectMarker(place.venue.id)}
                 >

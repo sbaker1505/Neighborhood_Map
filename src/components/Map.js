@@ -37,13 +37,25 @@ class Map extends Component {
       </GoogleMap>
     )
 
+    if (InitalMap) {
+      console.log("google map has loaded")
+      return (
+        <InitalMap
+          containerElement={mapContainer}
+          mapElement={mapElement}
+        />
+      )
+    }
+
     return (
-      <InitalMap
-        containerElement={mapContainer}
-        mapElement={mapElement}
-      />
+      <div className="map-error">Google Maps has failed to load</div>
     )
   }
 }
 
 export default Map
+
+
+function googleMapError() {
+  return alert('Google Map has failed to load!')
+}
