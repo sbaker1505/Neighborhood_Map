@@ -38,7 +38,6 @@ class Map extends Component {
     )
 
     if (InitalMap) {
-      console.log("google map has loaded")
       return (
         <InitalMap
           containerElement={mapContainer}

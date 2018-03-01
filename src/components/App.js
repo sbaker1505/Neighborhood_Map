@@ -38,12 +38,16 @@ class App extends Component {
         </div>
         <div className="body-container">
           <div className='map'>
-            <Map
-              center={center}
-              markers={filteredMarkers}
-              onSelectMarker={(id) => this.onSelectMarker(id)}
-              selectedMarker={selectedMarker}
-            />
+            {window.google
+              ?
+                <Map
+                  center={center}
+                  markers={filteredMarkers}
+                  onSelectMarker={(id) => this.onSelectMarker(id)}
+                  selectedMarker={selectedMarker}
+                />
+              : <div className="map-error">Google Maps has failed to load</div>
+            }
           </div>
           <div className="sidebar">
             <div className="search" role="search">
