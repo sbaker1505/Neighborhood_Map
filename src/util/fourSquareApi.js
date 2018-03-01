@@ -6,3 +6,4 @@ const url = 'https://api.foursquare.com/v2/venues'
 export const getVenues = (lat, lng) =>
   fetch(`${url}/explore?v=20180219&ll=${lat},${lng}&section=arts&client_id=${API_ID}&client_secret=${API_SECRET}`)
   .then(data => data.json())
+  .catch(err => console.log(err))

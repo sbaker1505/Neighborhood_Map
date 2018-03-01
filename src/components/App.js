@@ -13,6 +13,7 @@ class App extends Component {
     },
     markers: [],
     selectedMarker: '',
+    errorOnLoad: false
   }
 
   componentDidMount(){
@@ -21,7 +22,7 @@ class App extends Component {
       .then(data => {
         console.log(data)
         this.setState({markers: data.response.groups[0].items})
-      })
+      }).catch(() => this.setState({errorOnLoad: true}))
   }
 
   onSelectMarker = (id) => this.setState({selectedMarker: id})
@@ -57,11 +58,16 @@ class App extends Component {
                 onChange={(event) => this.setState({query: event.target.value})}
               />
             </div>
-            <Places
-              venues={filteredMarkers}
-              selectedMarker={selectedMarker}
-              onSelectMarker={(id) => this.onSelectMarker(id)}
-            />
+            {!this.state.errorOnLoad
+              ?
+                <Places
+                  venues={filteredMarkers}
+                  selectedMarker={selectedMarker}
+                  onSelectMarker={(id) => this.onSelectMarker(id)}
+                />
+              :
+                <div className="places">FourSquare API Failed to load</div>
+            }
           </div>
         </div>
       </div>
